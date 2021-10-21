@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void color(int color) {
+void setColor(int color) {
     if (STD_OUTPUT_HANDLE) {
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     }

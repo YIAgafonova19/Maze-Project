@@ -23,10 +23,10 @@ void drawMainMenu() {
 
     mainMenuItemColor[activeItem] = 14;
 
-    gotoxy(30, 12); color(mainMenuItemColor[0]); cout << " Start ";
-    gotoxy(30, 13); color(mainMenuItemColor[1]); cout << " Leaderboard ";
-    gotoxy(30, 14); color(mainMenuItemColor[2]); cout << " Help ";
-    gotoxy(30, 15); color(mainMenuItemColor[3]); cout << " Quit ";
+    gotoxy(30, 12); setColor(mainMenuItemColor[0]); cout << " Start ";
+    gotoxy(30, 13); setColor(mainMenuItemColor[1]); cout << " Leaderboard ";
+    gotoxy(30, 14); setColor(mainMenuItemColor[2]); cout << " Help ";
+    gotoxy(30, 15); setColor(mainMenuItemColor[3]); cout << " Quit ";
 }
 
 void processMainMenuInput(char keyPressed) {
