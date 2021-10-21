@@ -13,8 +13,21 @@ int mainMenuItemColor[] = { 11, 11, 11, 11 };
 char keyPressed;
 bool inMainMenu = true;
 
+void drawMainMenuLayout() {
+    cout << " _______  _______ _________ _          _______  _______  _" << endl;
+    cout << "(       )(  ___  )\\__   __/( (    /|  (       )(  ____ \\( (    /||\\     /|" << endl;
+    cout << "| () () || (   ) |   ) (   |  \\  ( |  | () () || (    \\/|  \\  ( || )   ( |" << endl;
+    cout << "| || || || (___) |   | |   |   \\ | |  | || || || (__    |   \\ | || |   | |" << endl;
+    cout << "| |(_)| ||  ___  |   | |   | (\\ \\) |  | |(_)| ||  __)   | (\\ \\) || |   | |" << endl;
+    cout << "| |   | || (   ) |   | |   | | \\   |  | |   | || (      | | \\   || |   | |" << endl;
+    cout << "| )   ( || )   ( |___) (___| )  \\  |  | )   ( || (____/\\| )  \\  || (___) |" << endl;
+    cout << "|/     \\||/     \\|\\_______/|/    )_)  |/     \\|(_______/|/    )_)(_______)" << endl;
+}                                                                         
+
 void drawMainMenu() {
     system("CLS");
+
+    drawMainMenuLayout();
 
     mainMenuItemColor[0] = 11;
     mainMenuItemColor[1] = 11;
@@ -28,6 +41,7 @@ void drawMainMenu() {
     gotoxy(30, 14); setColor(mainMenuItemColor[2]); cout << " Help ";
     gotoxy(30, 15); setColor(mainMenuItemColor[3]); cout << " Quit ";
 }
+
 
 void processMainMenuInput(char keyPressed) {
     switch (keyPressed) {
