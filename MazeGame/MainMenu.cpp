@@ -14,6 +14,7 @@ char keyPressed;
 bool inMainMenu = true;
 
 void drawMainMenuLayout() {
+    setColor(11); gotoxy(0, 0);
     cout << " _______  _______ _________ _          _______  _______  _" << endl;
     cout << "(       )(  ___  )\\__   __/( (    /|  (       )(  ____ \\( (    /||\\     /|" << endl;
     cout << "| () () || (   ) |   ) (   |  \\  ( |  | () () || (    \\/|  \\  ( || )   ( |" << endl;
@@ -22,11 +23,9 @@ void drawMainMenuLayout() {
     cout << "| |   | || (   ) |   | |   | | \\   |  | |   | || (      | | \\   || |   | |" << endl;
     cout << "| )   ( || )   ( |___) (___| )  \\  |  | )   ( || (____/\\| )  \\  || (___) |" << endl;
     cout << "|/     \\||/     \\|\\_______/|/    )_)  |/     \\|(_______/|/    )_)(_______)" << endl;
-}                                                                         
+}
 
 void drawMainMenu() {
-    system("CLS");
-
     drawMainMenuLayout();
 
     mainMenuItemColor[0] = 11;
@@ -46,7 +45,7 @@ void drawMainMenu() {
 void processMainMenuInput(char keyPressed) {
     switch (keyPressed) {
         case(72):
-            activeItem = (activeItem - 1) % 4;
+            activeItem = (activeItem + 3) % 4;
             break;
         case(80):
             activeItem = (activeItem + 1) % 4;
@@ -60,6 +59,7 @@ void processMainMenuInput(char keyPressed) {
 }
 
 void mainMenu() {
+    setCursor(false);
     inMainMenu = true;
 
     while (inMainMenu) {
@@ -69,4 +69,6 @@ void mainMenu() {
 
         processMainMenuInput(keyPressed);
     }
+
+    setCursor(true);
 }
