@@ -41,6 +41,27 @@ void drawMainMenu() {
     gotoxy(30, 15); setColor(mainMenuItemColor[3]); cout << " Quit ";
 }
 
+void drawLeaderboard() {
+    system("CLS");
+
+    setColor(11); gotoxy(0, 0);
+    cout << "Leaderboard menu" << endl;
+
+    system("PAUSE");
+}
+
+void drawHelp() {
+    system("CLS");
+
+    setColor(11); gotoxy(0, 0);
+    cout << "Help menu" << endl;
+
+    system("PAUSE");
+}
+
+void drawTheEnd() {
+    system("CLS");
+}
 
 void processMainMenuInput(char keyPressed) {
     switch (keyPressed) {
@@ -52,6 +73,23 @@ void processMainMenuInput(char keyPressed) {
             break;
         case(27):
             inMainMenu = false;
+            break;
+        case(0x0d):
+            switch (activeItem) {
+                case(0):
+                    break;
+                case(1):
+                    drawLeaderboard();
+                    break;
+                case(2):
+                    drawHelp();
+                    break;
+                case(3):
+                    inMainMenu = false;
+                    break;
+                default:
+                    break;
+            }
             break;
         default:
             break;
@@ -70,5 +108,7 @@ void mainMenu() {
         processMainMenuInput(keyPressed);
     }
 
+    drawTheEnd();
     setCursor(true);
+    setColor(15);
 }
