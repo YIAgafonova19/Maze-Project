@@ -3,6 +3,7 @@
 #include <conio.h>
 
 #include "MainMenu.h"
+#include "LevelMenu.h"
 #include "FrontEndHelpers.h"
 
 using namespace std;
@@ -77,6 +78,7 @@ void processMainMenuInput(char keyPressed) {
         case(0x0d):
             switch (activeItem) {
                 case(0):
+                    levelMenu();
                     break;
                 case(1):
                     drawLeaderboard();
