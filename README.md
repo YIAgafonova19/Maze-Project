@@ -1,5 +1,5 @@
 <p align = "center">
-  <img src = "https://imgur.com/NOS8nBl.jpg" width="550px">
+  <img src = "https://imgur.com/U8OWC8C.jpg" width="550px">
 </p>
 
 <h1 align = "center"> Maze-Project </h1>
@@ -21,12 +21,10 @@
 ## 💻 About
 Introducing to the world - Maze game! 
 
-<br>
    
 ## ⛏️ Used technologies
 <img src = "https://imgur.com/1T5p6HM.jpg" width = "30px" height = "30px" alt = "c++"> C++
 
-<br>
 
 ## ✅ Features
 
@@ -35,11 +33,10 @@ Introducing to the world - Maze game!
 - Help menu with instructions for the game
 - Leaderboard with the highest scores
 
-<br>
 
 ## 🧒 Our Team
 
 - <a href = "https://github.com/YIAgafonova19"> Yoana Agafonova </a> (Scrum Master)
-- <a href = "https://github.com/DSDimitrov19"> Dimitur Dimitrov </a> (Back-end Developer)
+- <a href = "https://github.com/DSDimitrov19"> Dimitar Dimitrov </a> (Back-end Developer)
 - <a href = "https://github.com/MVMartinov19"> Martin Martinov </a> (Front-end Developer)
 - <a href = "https://github.com/AITsachev19"> Alexander Tsachev </a> (QA Engineer)
