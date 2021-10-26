@@ -7,26 +7,53 @@
 
 using namespace std;
 
+struct MazeCell {
+	bool visited;
+	bool top;
+	bool right;
+	bool bottom;
+	bool left;
+};
+
 int mazeSize = 10;
-bool** mazeCell;
+MazeCell** mazeCell;
 int neighbourRow, neighbourCol;
 int unvisitedNeighboursCount;
 int unvisitedNeighbours[4][2];
 
+bool hasUnvisitedNeighbours(int row, int col);
+void chooseUnvisitedNeighbour();
+void removeWallBetween(int currentRow, int currentCol, int neighbourRow, int neighbourCol);
+void generateMaze(int row, int col);
+void drawMaze();
+void destroyMaze();
+
+
 void buildMaze(int size) {
 	mazeSize = size;
-	mazeCell = new bool* [mazeSize];
+	mazeCell = new MazeCell * [mazeSize];
 	for (int i = 0; i < mazeSize; i++) {
-		mazeCell[i] = new bool[mazeSize];
+		mazeCell[i] = new MazeCell[mazeSize];
 	}
 
 	for (int i = 0; i < mazeSize; i++) {
 		for (int j = 0; j < mazeSize; j++) {
-			mazeCell[i][j] = false;
+			mazeCell[i][j].visited = false;
+			mazeCell[i][j].top = true;
+			mazeCell[i][j].right = true;
+			mazeCell[i][j].bottom = true;
+			mazeCell[i][j].left = true;
 		}
 	}
 
+	mazeCell[0][0].left = false;
+	mazeCell[mazeSize - 1][mazeSize - 1].right = false;
+
 	generateMaze(0, 0);
+
+	drawMaze();
+
+	system("PAUSE");
 }
 
 bool hasUnvisitedNeighbours(int row, int col) {
@@ -40,7 +67,7 @@ bool hasUnvisitedNeighbours(int row, int col) {
 
 	// checkTop
 	if (row > 0) {
-		if (!mazeCell[row - 1][col]) {
+		if (!mazeCell[row - 1][col].visited) {
 			result = true;
 			unvisitedNeighbours[unvisitedNeighboursCount][0] = row - 1;
 			unvisitedNeighbours[unvisitedNeighboursCount][1] = col;
@@ -49,7 +76,7 @@ bool hasUnvisitedNeighbours(int row, int col) {
 	}
 	// checkBottom
 	if (row < mazeSize - 1) {
-		if (!mazeCell[row + 1][col]) {
+		if (!mazeCell[row + 1][col].visited) {
 			result = true;
 			unvisitedNeighbours[unvisitedNeighboursCount][0] = row + 1;
 			unvisitedNeighbours[unvisitedNeighboursCount][1] = col;
@@ -58,7 +85,7 @@ bool hasUnvisitedNeighbours(int row, int col) {
 	}
 	// checkLeft
 	if (col > 0) {
-		if (!mazeCell[row][col - 1]) {
+		if (!mazeCell[row][col - 1].visited) {
 			result = true;
 			unvisitedNeighbours[unvisitedNeighboursCount][0] = row;
 			unvisitedNeighbours[unvisitedNeighboursCount][1] = col - 1;
@@ -67,7 +94,7 @@ bool hasUnvisitedNeighbours(int row, int col) {
 	}
 	// checkRight
 	if (col < mazeSize - 1) {
-		if (!mazeCell[row][col + 1]) {
+		if (!mazeCell[row][col + 1].visited) {
 			result = true;
 			unvisitedNeighbours[unvisitedNeighboursCount][0] = row;
 			unvisitedNeighbours[unvisitedNeighboursCount][1] = col + 1;
@@ -80,18 +107,37 @@ bool hasUnvisitedNeighbours(int row, int col) {
 
 void chooseUnvisitedNeighbour() {
 	int choosenUnvisitedNeighbour = rand() % unvisitedNeighboursCount + 1;
-	neighbourRow = unvisitedNeighbours[choosenUnvisitedNeighbour][0];
-	neighbourCol = unvisitedNeighbours[choosenUnvisitedNeighbour][1];
+	neighbourRow = unvisitedNeighbours[choosenUnvisitedNeighbour - 1][0];
+	neighbourCol = unvisitedNeighbours[choosenUnvisitedNeighbour - 1][1];
 }
 
 void removeWallBetween(int currentRow, int currentCol, int neighbourRow, int neighbourCol) {
-	// TODO
+	// checkForTopNeighbour
+	if (currentRow == neighbourRow + 1) {
+		mazeCell[currentRow][currentCol].top = false;
+		mazeCell[neighbourRow][neighbourCol].bottom = false;
+	}
+	// checkForBottomNeighbour
+	if (currentRow == neighbourRow - 1) {
+		mazeCell[currentRow][currentCol].bottom = false;
+		mazeCell[neighbourRow][neighbourCol].top = false;
+	}
+	// checkForLeftNeighbour
+	if (currentCol == neighbourCol + 1) {
+		mazeCell[currentRow][currentCol].left = false;
+		mazeCell[neighbourRow][neighbourCol].right = false;
+	}
+	// checkForRightNeighbour
+	if (currentCol == neighbourCol - 1) {
+		mazeCell[currentRow][currentCol].right = false;
+		mazeCell[neighbourRow][neighbourCol].left = false;
+	}
 }
 
 void generateMaze(int row, int col) {
 	//1. Given a current cell as a parameter
 	//2. Mark the current cell as visited
-		mazeCell[row][col] = true;
+		mazeCell[row][col].visited = true;
 	//3. While the current cell has any unvisited neighbour cells
 		while (hasUnvisitedNeighbours(row, col)) {
 			//1. Choose one of the unvisited neighbours
@@ -104,7 +150,31 @@ void generateMaze(int row, int col) {
 }
 
 void drawMaze() {
-	// TODO
+	system("CLS");
+
+	for (int i = 0; i < mazeSize; i++) {
+		for (int j = 0; j < mazeSize; j++) {
+			//1 + j * 2, 1 + i * 2
+			if (mazeCell[i][j].top) {
+				gotoxy(1 + j * 5, 1 + i * 2 - 1); cout << "----";
+			}
+			if (mazeCell[i][j].bottom) {
+				gotoxy(1 + j * 5, 1 + i * 2 + 1); cout << "----";
+			}
+			if (mazeCell[i][j].left) {
+				gotoxy(1 + j * 5 - 1, 1 + i * 2); cout << "|";
+			}
+			if (mazeCell[i][j].right) {
+				gotoxy(1 + j * 5 + 4, 1 + i * 2); cout << "|";
+			}
+
+			gotoxy(1 + j * 5 - 1, 1 + i * 2 - 1); cout << "+";
+			gotoxy(1 + j * 5 - 1, 1 + i * 2 + 1); cout << "+";
+			gotoxy(1 + j * 5 + 4, 1 + i * 2 - 1); cout << "+";
+			gotoxy(1 + j * 5 + 4, 1 + i * 2 + 1); cout << "+";
+		}
+	}
+	cout << endl;
 }
 
 void destroyMaze() {

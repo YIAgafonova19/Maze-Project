@@ -3,6 +3,7 @@
 #include <conio.h>
 
 #include "LevelMenu.h"
+#include "Maze.h"
 #include "FrontEndHelpers.h"
 
 using namespace std;
@@ -57,12 +58,16 @@ void processLevelMenuInput(char levelKeyPressed) {
     case(0x0d):
         switch (activeLevelItem) {
         case(0):
+            buildMaze(10);
             break;
         case(1):
+            buildMaze(20);
             break;
         case(2):
+            buildMaze(30);
             break;
         case(3):
+            buildMaze(30);
             break;
         case(4):
             break;
