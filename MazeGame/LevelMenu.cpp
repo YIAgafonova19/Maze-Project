@@ -4,6 +4,8 @@
 
 #include "LevelMenu.h"
 #include "Maze.h"
+#include "Player.h"
+#include "Game.h"
 #include "FrontEndHelpers.h"
 
 using namespace std;
@@ -45,34 +47,34 @@ void drawLevelMenu() {
 
 void processLevelMenuInput(char levelKeyPressed) {
     switch (levelKeyPressed) {
-    case(72):
+    case(KEY_UP):
         activeLevelItem = (activeLevelItem + 4) % 5;
         break;
-    case(80):
+    case(KEY_DOWN):
         activeLevelItem = (activeLevelItem + 1) % 5;
         break;
-    case(27):
+    case(KEY_ESC):
         system("CLS");
         inLevelMenu = false;
         break;
-    case(0x0d):
+    case(KEY_ENTER):
         switch (activeLevelItem) {
-        case(0):
-            buildMaze(10);
-            break;
-        case(1):
-            buildMaze(20);
-            break;
-        case(2):
-            buildMaze(30);
-            break;
-        case(3):
-            buildMaze(30);
-            break;
-        case(4):
-            break;
-        default:
-            break;
+            case(0):
+                playGame(10);
+                break;
+            case(1):
+                playGame(15);
+                break;
+            case(2):
+                playGame(20);
+                break;
+            case(3):
+                playGame(20);
+                break;
+            case(4):
+                break;
+            default:
+                break;
         }
         break;
     default:

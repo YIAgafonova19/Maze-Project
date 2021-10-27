@@ -15,7 +15,7 @@ struct MazeCell {
 	bool left;
 };
 
-int mazeSize = 10;
+int mazeSize;
 MazeCell** mazeCell;
 int neighbourRow, neighbourCol;
 int unvisitedNeighboursCount;
@@ -27,7 +27,31 @@ void removeWallBetween(int currentRow, int currentCol, int neighbourRow, int nei
 void generateMaze(int row, int col);
 void drawMaze();
 void destroyMaze();
+int getMazeSize();
+bool mazeCellHasTopWall(int row, int col);
+bool mazeCellHasBottomWall(int row, int col);
+bool mazeCellHasLeftWall(int row, int col);
+bool mazeCellHasRightWall(int row, int col);
 
+int getMazeSize() {
+	return mazeSize;
+}
+
+bool mazeCellHasTopWall(int row, int col) {
+	return mazeCell[row][col].top;
+}
+
+bool mazeCellHasBottomWall(int row, int col) {
+	return mazeCell[row][col].bottom;
+}
+
+bool mazeCellHasLeftWall(int row, int col) {
+	return mazeCell[row][col].left;
+}
+
+bool mazeCellHasRightWall(int row, int col) {
+	return mazeCell[row][col].right;
+}
 
 void buildMaze(int size) {
 	mazeSize = size;
@@ -52,8 +76,6 @@ void buildMaze(int size) {
 	generateMaze(0, 0);
 
 	drawMaze();
-
-	system("PAUSE");
 }
 
 bool hasUnvisitedNeighbours(int row, int col) {
@@ -150,28 +172,27 @@ void generateMaze(int row, int col) {
 }
 
 void drawMaze() {
-	system("CLS");
+	setColor(11);
 
 	for (int i = 0; i < mazeSize; i++) {
 		for (int j = 0; j < mazeSize; j++) {
-			//1 + j * 2, 1 + i * 2
 			if (mazeCell[i][j].top) {
-				gotoxy(1 + j * 5, 1 + i * 2 - 1); cout << "----";
+				gotoxy(1 + j * 5, 2 + i * 2 - 1); cout << "----";
 			}
 			if (mazeCell[i][j].bottom) {
-				gotoxy(1 + j * 5, 1 + i * 2 + 1); cout << "----";
+				gotoxy(1 + j * 5, 2 + i * 2 + 1); cout << "----";
 			}
 			if (mazeCell[i][j].left) {
-				gotoxy(1 + j * 5 - 1, 1 + i * 2); cout << "|";
+				gotoxy(1 + j * 5 - 1, 2 + i * 2); cout << "|";
 			}
 			if (mazeCell[i][j].right) {
-				gotoxy(1 + j * 5 + 4, 1 + i * 2); cout << "|";
+				gotoxy(1 + j * 5 + 4, 2 + i * 2); cout << "|";
 			}
 
-			gotoxy(1 + j * 5 - 1, 1 + i * 2 - 1); cout << "+";
-			gotoxy(1 + j * 5 - 1, 1 + i * 2 + 1); cout << "+";
-			gotoxy(1 + j * 5 + 4, 1 + i * 2 - 1); cout << "+";
-			gotoxy(1 + j * 5 + 4, 1 + i * 2 + 1); cout << "+";
+			gotoxy(1 + j * 5 - 1, 2 + i * 2 - 1); cout << "+";
+			gotoxy(1 + j * 5 - 1, 2 + i * 2 + 1); cout << "+";
+			gotoxy(1 + j * 5 + 4, 2 + i * 2 - 1); cout << "+";
+			gotoxy(1 + j * 5 + 4, 2 + i * 2 + 1); cout << "+";
 		}
 	}
 	cout << endl;

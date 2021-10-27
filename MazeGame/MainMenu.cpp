@@ -66,16 +66,16 @@ void drawTheEnd() {
 
 void processMainMenuInput(char keyPressed) {
     switch (keyPressed) {
-        case(72):
+        case(KEY_UP):
             activeItem = (activeItem + 3) % 4;
             break;
-        case(80):
+        case(KEY_DOWN):
             activeItem = (activeItem + 1) % 4;
             break;
-        case(27):
+        case(KEY_ESC):
             inMainMenu = false;
             break;
-        case(0x0d):
+        case(KEY_ENTER):
             switch (activeItem) {
                 case(0):
                     levelMenu();
