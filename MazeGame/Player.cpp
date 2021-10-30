@@ -31,6 +31,7 @@ void drawPlayer() {
 void movePlayer(int direction) {
 	lastPlayerRow = playerRow;
 	lastPlayerCol = playerCol;
+	// TODO: Check if player is at the beginning
 	switch (direction) {
 		case (0):
 			if (!mazeCellHasTopWall(playerRow, playerCol)) {
@@ -62,7 +63,7 @@ void movePlayer(int direction) {
 }
 
 bool checkFinalCondition() {
-	return ((playerCol == getMazeSize() - 1) && (playerRow == getMazeSize() - 1));
+	return ((playerCol == getMazeSize()) && (playerRow == getMazeSize() - 1));
 }
 
 void destroyPlayer() {

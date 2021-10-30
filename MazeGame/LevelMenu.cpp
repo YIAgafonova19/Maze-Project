@@ -42,7 +42,7 @@ void drawLevelMenu() {
     gotoxy(30, 13); setColor(levelMenuItemColor[1]); cout << " Medium ";
     gotoxy(30, 14); setColor(levelMenuItemColor[2]); cout << " Hard ";
     gotoxy(30, 15); setColor(levelMenuItemColor[3]); cout << " Impossible ";
-    gotoxy(30, 16); setColor(levelMenuItemColor[4]); cout << " Custom ";
+    gotoxy(30, 16); setColor(levelMenuItemColor[4]); cout << " Custom (Soon)";
 }
 
 void processLevelMenuInput(char levelKeyPressed) {

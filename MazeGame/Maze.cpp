@@ -70,7 +70,7 @@ void buildMaze(int size) {
 		}
 	}
 
-	mazeCell[0][0].left = false;
+	mazeCell[0][0].left = true;
 	mazeCell[mazeSize - 1][mazeSize - 1].right = false;
 
 	generateMaze(0, 0);
