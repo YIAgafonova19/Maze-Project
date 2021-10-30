@@ -4,6 +4,7 @@
 
 #include "MainMenu.h"
 #include "LevelMenu.h"
+#include "Score.h"
 #include "FrontEndHelpers.h"
 
 using namespace std;
@@ -40,15 +41,6 @@ void drawMainMenu() {
     gotoxy(30, 13); setColor(mainMenuItemColor[1]); cout << " Leaderboard ";
     gotoxy(30, 14); setColor(mainMenuItemColor[2]); cout << " Help ";
     gotoxy(30, 15); setColor(mainMenuItemColor[3]); cout << " Quit ";
-}
-
-void drawLeaderboard() {
-    system("CLS");
-
-    setColor(11); gotoxy(0, 0);
-    cout << "Leaderboard menu" << endl;
-
-    system("PAUSE");
 }
 
 void drawHelp() {

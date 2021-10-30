@@ -11,6 +11,12 @@ using namespace std;
 
 bool inGame;
 char gameKeyPressed;
+int mazeSizes[] = { 10, 15, 20 };
+int currentDifficulty;
+
+int getCurrentDifficulty() {
+	return currentDifficulty;
+}
 
 void processPlayerInput() {
     switch (gameKeyPressed) {
@@ -34,10 +40,12 @@ void processPlayerInput() {
     }
 }
 
-void playGame(int size) {
+void playGame(int difficulty) {
 	system("CLS");
 
-	buildMaze(size);
+	currentDifficulty = difficulty;
+
+	buildMaze(mazeSizes[difficulty]);
 	initPlayer();
 	initPlayerScore();
 

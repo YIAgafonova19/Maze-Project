@@ -11,7 +11,7 @@
 using namespace std;
 
 int activeLevelItem = 0;
-int levelMenuItemColor[] = { 11, 11, 11, 11, 11 };
+int levelMenuItemColor[] = { 11, 11, 11 };
 char levelKeyPressed;
 bool inLevelMenu = true;
 
@@ -33,25 +33,21 @@ void drawLevelMenu() {
     levelMenuItemColor[0] = 11;
     levelMenuItemColor[1] = 11;
     levelMenuItemColor[2] = 11;
-    levelMenuItemColor[3] = 11;
-    levelMenuItemColor[4] = 11;
 
     levelMenuItemColor[activeLevelItem] = 14;
 
     gotoxy(30, 12); setColor(levelMenuItemColor[0]); cout << " Easy ";
     gotoxy(30, 13); setColor(levelMenuItemColor[1]); cout << " Medium ";
     gotoxy(30, 14); setColor(levelMenuItemColor[2]); cout << " Hard ";
-    gotoxy(30, 15); setColor(levelMenuItemColor[3]); cout << " Impossible ";
-    gotoxy(30, 16); setColor(levelMenuItemColor[4]); cout << " Custom (Soon)";
 }
 
 void processLevelMenuInput(char levelKeyPressed) {
     switch (levelKeyPressed) {
     case(KEY_UP):
-        activeLevelItem = (activeLevelItem + 4) % 5;
+        activeLevelItem = (activeLevelItem + 2) % 3;
         break;
     case(KEY_DOWN):
-        activeLevelItem = (activeLevelItem + 1) % 5;
+        activeLevelItem = (activeLevelItem + 1) % 3;
         break;
     case(KEY_ESC):
         system("CLS");
@@ -60,18 +56,13 @@ void processLevelMenuInput(char levelKeyPressed) {
     case(KEY_ENTER):
         switch (activeLevelItem) {
             case(0):
-                playGame(10);
+                playGame(DIFFICULTY_EASY);
                 break;
             case(1):
-                playGame(15);
+                playGame(DIFFICULTY_MEDIUM);
                 break;
             case(2):
-                playGame(20);
-                break;
-            case(3):
-                playGame(20);
-                break;
-            case(4):
+                playGame(DIFFICULTY_HARD);
                 break;
             default:
                 break;
