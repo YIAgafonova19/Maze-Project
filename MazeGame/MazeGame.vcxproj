@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="FrontEndHelpers.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Keys.cpp" />
     <ClCompile Include="LevelMenu.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Maze.cpp" />
@@ -151,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="FrontEndHelpers.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Keys.h" />
     <ClInclude Include="LevelMenu.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Maze.h" />

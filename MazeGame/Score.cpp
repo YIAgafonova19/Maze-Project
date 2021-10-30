@@ -2,6 +2,7 @@
 
 #include "Score.h"
 #include "Game.h"
+#include "Keys.h"
 #include "FrontEndHelpers.h"
 
 using namespace std;
@@ -36,7 +37,7 @@ void setFinalScore() {
 }
 
 void drawScore() {
-	gotoxy(0, 0); cout << "Current score: " << playerScore << " / Best score: " << bestScore[getCurrentDifficulty()];
+	gotoxy(0, 0); cout << "Key count: " << getPlayerKeys() << " / Current score: " << playerScore << " / Best score: " << bestScore[getCurrentDifficulty()];
 }
 
 void destroyScore() {

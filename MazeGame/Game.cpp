@@ -5,6 +5,7 @@
 #include "Maze.h"
 #include "Player.h"
 #include "Score.h"
+#include "Keys.h"
 #include "FrontEndHelpers.h"
 
 using namespace std;
@@ -46,11 +47,13 @@ void playGame(int difficulty) {
 	currentDifficulty = difficulty;
 
 	buildMaze(mazeSizes[difficulty]);
+	generateKeys();
 	initPlayer();
 	initPlayerScore();
 
 	inGame = true;
 	drawMaze();
+	drawKeys();
 	while (inGame) {
 		drawPlayer();
 		drawScore();
@@ -58,6 +61,10 @@ void playGame(int difficulty) {
 		gameKeyPressed = _getch();
 
 		processPlayerInput();
+
+		if (checkIfPlayerIsOnKey()) {
+			takeKey();
+		}
 
 		if (checkFinalCondition()) {
 			setFinalScore();

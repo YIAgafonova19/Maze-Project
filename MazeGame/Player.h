@@ -11,3 +11,5 @@ void movePlayer(int direction);
 void destroyPlayer();
 
 bool checkFinalCondition();
+int getPlayerCol();
+int getPlayerRow();
