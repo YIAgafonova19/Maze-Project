@@ -22,7 +22,15 @@ void drawLeaderboard() {
 	system("CLS");
 
 	setColor(11); gotoxy(0, 0);
-	cout << "Leaderboard menu" << endl;
+	cout << " _        _______  _______  ______   _______  _______  ______   _______  _______  _______  ______  " << endl;
+	cout << "( \\      (  ____ \\(  ___  )(  __  \\ (  ____ \\(  ____ )(  ___ \\ (  ___  )(  ___  )(  ____ )(  __  \\ " << endl;
+	cout << "| (      | (    \\/| (   ) || (  \\  )| (    \\/| (    )|| (   ) )| (   ) || (   ) || (    )|| (  \\  )" << endl;
+	cout << "| |      | (__    | (___) || |   ) || (__    | (____)|| (__/ / | |   | || (___) || (____)|| |   ) |" << endl;
+	cout << "| |      |  __)   |  ___  || |   | ||  __)   |     __)|  __ (  | |   | ||  ___  ||     __)| |   | |" << endl;
+	cout << "| |      | (      | (   ) || |   ) || (      | (\\ (   | (  \\ \\ | |   | || (   ) || (\\ (   | |   ) |" << endl;
+	cout << "| (____/\\| (____/\\| )   ( || (__/  )| (____/\\| ) \\ \\__| )___) )| (___) || )   ( || ) \\ \\__| (__/  )" << endl;
+	cout << "(_______/(_______/|/     \\|(______/ (_______/|/   \\__/|/ \\___/ (_______)|/     \\||/   \\__/(______/" << endl << endl;
+
 	cout << "Easy level best score: " << bestScore[DIFFICULTY_EASY] << endl;
 	cout << "Medium level best score: " << bestScore[DIFFICULTY_MEDIUM] << endl;
 	cout << "Hard level best score: " << bestScore[DIFFICULTY_HARD] << endl;

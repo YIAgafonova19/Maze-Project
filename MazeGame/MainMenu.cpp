@@ -17,6 +17,8 @@ char keyPressed;
 bool inMainMenu = true;
 
 void drawMainMenuLayout() {
+    system("CLS");
+
     setColor(11); gotoxy(0, 0);
     cout << " _______  _______ _________ _          _______  _______  _" << endl;
     cout << "(       )(  ___  )\\__   __/( (    /|  (       )(  ____ \\( (    /||\\     /|" << endl;
