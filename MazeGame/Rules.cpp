@@ -1,11 +1,11 @@
 #include <iostream>
 
-#include "Help.h"
+#include "Rules.h"
 #include "FrontEndHelpers.h"
 
 using namespace std;
 
-void drawHelp() {
+void drawRules() {
     system("CLS");
 
     setColor(11); gotoxy(0, 0);
@@ -19,4 +19,5 @@ void drawHelp() {
     cout << "|/     \\|(_______/(_______/|/         |/     \\|(_______/|/    )_)(_______)" << endl << endl;
 
     system("PAUSE");
+    system("CLS");
 }

@@ -36,6 +36,7 @@ void drawLeaderboard() {
 	cout << "Hard level best score: " << bestScore[DIFFICULTY_HARD] << endl;
 
 	system("PAUSE");
+	system("CLS");
 }
 
 void setFinalScore() {

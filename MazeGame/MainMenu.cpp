@@ -5,7 +5,7 @@
 #include "MainMenu.h"
 #include "LevelMenu.h"
 #include "Score.h"
-#include "Help.h"
+#include "Rules.h"
 #include "FrontEndHelpers.h"
 
 using namespace std;
@@ -17,8 +17,6 @@ char keyPressed;
 bool inMainMenu = true;
 
 void drawMainMenuLayout() {
-    system("CLS");
-
     setColor(11); gotoxy(0, 0);
     cout << " _______  _______ _________ _          _______  _______  _" << endl;
     cout << "(       )(  ___  )\\__   __/( (    /|  (       )(  ____ \\( (    /||\\     /|" << endl;
@@ -70,7 +68,7 @@ void processMainMenuInput(char keyPressed) {
                     drawLeaderboard();
                     break;
                 case(2):
-                    drawHelp();
+                    drawRules();
                     break;
                 case(3):
                     inMainMenu = false;
