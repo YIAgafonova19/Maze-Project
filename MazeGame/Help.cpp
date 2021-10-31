@@ -9,6 +9,7 @@ void drawHelp() {
     system("CLS");
 
     setColor(11); gotoxy(0, 0);
+
     cout << "Help menu" << endl;
 
     system("PAUSE");
