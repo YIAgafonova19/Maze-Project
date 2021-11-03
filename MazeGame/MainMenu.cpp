@@ -40,7 +40,7 @@ void drawMainMenu() {
 
     gotoxy(30, 12); setColor(mainMenuItemColor[0]); cout << " Start ";
     gotoxy(30, 13); setColor(mainMenuItemColor[1]); cout << " Leaderboard ";
-    gotoxy(30, 14); setColor(mainMenuItemColor[2]); cout << " Help ";
+    gotoxy(30, 14); setColor(mainMenuItemColor[2]); cout << " Rules ";
     gotoxy(30, 15); setColor(mainMenuItemColor[3]); cout << " Quit ";
 }
 
