@@ -53,6 +53,28 @@ bool mazeCellHasRightWall(int row, int col) {
 	return mazeCell[row][col].right;
 }
 
+bool isMazeCellTucked(int row, int col) {
+	int wallCount = 0;
+
+	if (mazeCellHasTopWall(row, col)) {
+		wallCount++;
+	}
+
+	if (mazeCellHasBottomWall(row, col)) {
+		wallCount++;
+	}
+
+	if (mazeCellHasLeftWall(row, col)) {
+		wallCount++;
+	}
+
+	if (mazeCellHasRightWall(row, col)) {
+		wallCount++;
+	}
+
+	return (wallCount == 3);
+}
+
 void buildMaze(int size) {
 	mazeSize = size;
 	mazeCell = new MazeCell * [mazeSize];
@@ -70,7 +92,7 @@ void buildMaze(int size) {
 		}
 	}
 
-	mazeCell[0][0].left = false;
+	mazeCell[0][0].left = true;
 	mazeCell[mazeSize - 1][mazeSize - 1].right = false;
 
 	generateMaze(0, 0);
@@ -138,21 +160,29 @@ void removeWallBetween(int currentRow, int currentCol, int neighbourRow, int nei
 	if (currentRow == neighbourRow + 1) {
 		mazeCell[currentRow][currentCol].top = false;
 		mazeCell[neighbourRow][neighbourCol].bottom = false;
+
+		gotoxy(1 + currentCol * 5, 2 + currentRow * 2 - 1); cout << "    ";
 	}
 	// checkForBottomNeighbour
 	if (currentRow == neighbourRow - 1) {
 		mazeCell[currentRow][currentCol].bottom = false;
 		mazeCell[neighbourRow][neighbourCol].top = false;
+
+		gotoxy(1 + currentCol * 5, 2 + currentRow * 2 + 1); cout << "    ";
 	}
 	// checkForLeftNeighbour
 	if (currentCol == neighbourCol + 1) {
 		mazeCell[currentRow][currentCol].left = false;
 		mazeCell[neighbourRow][neighbourCol].right = false;
+
+		gotoxy(1 + currentCol * 5 - 1, 2 + currentRow * 2); cout << " ";
 	}
 	// checkForRightNeighbour
 	if (currentCol == neighbourCol - 1) {
 		mazeCell[currentRow][currentCol].right = false;
 		mazeCell[neighbourRow][neighbourCol].left = false;
+
+		gotoxy(1 + currentCol * 5 + 4, 2 + currentRow * 2); cout << " ";
 	}
 }
 

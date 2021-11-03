@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Maze.h"
 #include "Score.h"
+#include "Keys.h"
 #include "FrontEndHelpers.h"
 
 using namespace std;
@@ -32,28 +33,64 @@ void movePlayer(int direction) {
 	lastPlayerRow = playerRow;
 	lastPlayerCol = playerCol;
 	switch (direction) {
-		case (0):
+		case (PLAYER_MOVE_DIRECTION_UP):
 			if (!mazeCellHasTopWall(playerRow, playerCol)) {
 				playerRow -= 1;
 				setScore();
+			} else {
+				if ((getPlayerRow() != 0) && (getPlayerKeys() > 0)) {
+					useKey();
+
+					removeWallBetween(getPlayerRow(), getPlayerCol(), getPlayerRow() - 1, getPlayerCol());
+
+					playerRow -= 1;
+					setScore();
+				}
 			}
 			break;
-		case (1):
+		case (PLAYER_MOVE_DIRECTION_DOWN):
 			if (!mazeCellHasBottomWall(playerRow, playerCol)) {
 				playerRow += 1;
 				setScore();
+			} else {
+				if ((getPlayerRow() != getMazeSize() - 1) && (getPlayerKeys() > 0)) {
+					useKey();
+
+					removeWallBetween(getPlayerRow(), getPlayerCol(), getPlayerRow() + 1, getPlayerCol());
+
+					playerRow += 1;
+					setScore();
+				}
 			}
 			break;
-		case (2):
+		case (PLAYER_MOVE_DIRECTION_LEFT):
 			if (!mazeCellHasLeftWall(playerRow, playerCol)) {
 				playerCol -= 1;
 				setScore();
+			} else {
+				if ((getPlayerCol() != 0) && (getPlayerKeys() > 0)) {
+					useKey();
+
+					removeWallBetween(getPlayerRow(), getPlayerCol(), getPlayerRow(), getPlayerCol() - 1);
+
+					playerCol -= 1;
+					setScore();
+				}
 			}
 			break;
-		case (3):
+		case (PLAYER_MOVE_DIRECTION_RIGHT):
 			if (!mazeCellHasRightWall(playerRow, playerCol)) {
 				playerCol += 1;
 				setScore();
+			} else {
+				if ((getPlayerCol() != getMazeSize() - 1) && (getPlayerKeys() > 0)) {
+					useKey();
+
+					removeWallBetween(getPlayerRow(), getPlayerCol(), getPlayerRow(), getPlayerCol() + 1);
+
+					playerCol += 1;
+					setScore();
+				}
 			}
 			break;
 		default:
@@ -61,8 +98,16 @@ void movePlayer(int direction) {
 	}
 }
 
+int getPlayerCol() {
+	return playerCol;
+}
+
+int getPlayerRow() {
+	return playerRow;
+}
+
 bool checkFinalCondition() {
-	return ((playerCol == getMazeSize() - 1) && (playerRow == getMazeSize() - 1));
+	return ((playerCol == getMazeSize()) && (playerRow == getMazeSize() - 1));
 }
 
 void destroyPlayer() {

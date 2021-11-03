@@ -4,6 +4,8 @@
 
 #include "MainMenu.h"
 #include "LevelMenu.h"
+#include "Score.h"
+#include "Rules.h"
 #include "FrontEndHelpers.h"
 
 using namespace std;
@@ -42,24 +44,6 @@ void drawMainMenu() {
     gotoxy(30, 15); setColor(mainMenuItemColor[3]); cout << " Quit ";
 }
 
-void drawLeaderboard() {
-    system("CLS");
-
-    setColor(11); gotoxy(0, 0);
-    cout << "Leaderboard menu" << endl;
-
-    system("PAUSE");
-}
-
-void drawHelp() {
-    system("CLS");
-
-    setColor(11); gotoxy(0, 0);
-    cout << "Help menu" << endl;
-
-    system("PAUSE");
-}
-
 void drawTheEnd() {
     system("CLS");
 }
@@ -84,7 +68,7 @@ void processMainMenuInput(char keyPressed) {
                     drawLeaderboard();
                     break;
                 case(2):
-                    drawHelp();
+                    drawRules();
                     break;
                 case(3):
                     inMainMenu = false;
