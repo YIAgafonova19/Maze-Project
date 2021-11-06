@@ -43,6 +43,10 @@ void processPlayerInput() {
 
 void drawGameEnd() {
 	system("CLS");
+
+	// HERE
+
+	system("PAUSE");
 }
 
 void playGame(int difficulty) {
