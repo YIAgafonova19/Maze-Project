@@ -41,6 +41,10 @@ void processPlayerInput() {
     }
 }
 
+void drawGameEnd() {
+	system("CLS");
+}
+
 void playGame(int difficulty) {
 	system("CLS");
 
@@ -76,5 +80,5 @@ void playGame(int difficulty) {
 	destroyPlayer();
 	destroyScore();
 
-	system("CLS");
+	drawGameEnd();
 }
