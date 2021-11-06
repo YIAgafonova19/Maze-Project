@@ -11,7 +11,6 @@
 using namespace std;
 
 int activeItem = 0;
-const int ITEMSCOUNT = 4;
 int mainMenuItemColor[] = { 11, 11, 11, 11 };
 char keyPressed;
 bool inMainMenu = true;
