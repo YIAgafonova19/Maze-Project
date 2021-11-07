@@ -34,6 +34,14 @@ Introducing to the world - Maze game!
 - Leaderboard with the highest scores
 
 
+## 📄 Documents
+
+- [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/yiagafonova19_codingburgas_bg/EYabwIItTadPmLs0vBGYQbUB5DsE0RMdlRiJbshYiKzwkA?e=jpVg7H)
+- [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/yiagafonova19_codingburgas_bg/EQuHXU9gxDVPkQeavpAzSlUBPw4PXaFHOPynt2XL1dL8Tg?e=fzXpvz)
+- [Test Plan](https://codingburgas-my.sharepoint.com/:w:/g/personal/yiagafonova19_codingburgas_bg/ERmPN7SvQHtGpoKo7yI4Ze4BpTycLx0xx-pgxo1g_MYUjQ?e=RC9EXX)
+- [Game Testing]()
+
+
 ## 🧒 Our Team
 
 - <a href = "https://github.com/YIAgafonova19"> Yoana Agafonova </a> (Scrum Master)
