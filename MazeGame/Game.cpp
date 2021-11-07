@@ -43,10 +43,18 @@ void processPlayerInput() {
 
 void drawGameEnd() {
 	system("CLS");
-
-	// HERE
-
+	setColor(11);
+	cout << "          _______                           _________ _       \n";
+	cout << "|\\     /|(  ___  )|\\     /|        |\\     /|\\__   __/( (    /|\n";
+	cout << "( \\   / )| (   ) || )   ( |        | )   ( |   ) (   |  \\  ( |\n";
+	cout << " \\ (_) / | |   | || |   | |        | | _ | |   | |   |   \\ | |\n";
+	cout << "  \\   /  | |   | || |   | |        | |( )| |   | |   | (\\ \\) |\n";
+	cout << "   ) (   | |   | || |   | |        | || || |   | |   | | \\   |\n";
+	cout << "   | |   | (___) || (___) |        | () () |___) (___| )  \\  |\n";
+	cout << "   \\_/   (_______)(_______)        (_______)\\_______/|/    )_)\n";
+	cout << "\n\n";
 	system("PAUSE");
+	system("CLS");
 }
 
 void playGame(int difficulty) {
