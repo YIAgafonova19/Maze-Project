@@ -30,7 +30,7 @@ Introducing to the world - Maze game!
 
 - 3 levels of difficulty + a custom level
 - User-friendly interface
-- Help menu with instructions for the game
+- Rules menu with instructions for the game
 - Leaderboard with the highest scores
 
 
