@@ -5,6 +5,7 @@
 
 using namespace std;
 
+//This function drwas the Rules menu of the game
 void drawRules() {
     system("CLS");
 
