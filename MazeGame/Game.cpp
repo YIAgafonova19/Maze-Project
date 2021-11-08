@@ -16,10 +16,12 @@ char gameKeyPressed;
 int mazeSizes[] = { 10, 15, 20 };
 int currentDifficulty;
 
+//This function takes the current difficulty according to the level the player chose
 int getCurrentDifficulty() {
 	return currentDifficulty;
 }
 
+//This function checks if the player pressed a key and takes action accordingly
 void processPlayerInput() {
     switch (gameKeyPressed) {
 		case(KEY_UP):
@@ -43,6 +45,7 @@ void processPlayerInput() {
     }
 }
 
+//This function draws the Win screen
 void drawGameEnd(bool isWin) {
 	system("CLS");
 	if (isWin) {
@@ -62,6 +65,7 @@ void drawGameEnd(bool isWin) {
 	}
 }
 
+//This is the main function of the game
 void playGame(int difficulty) {
 	system("CLS");
 
