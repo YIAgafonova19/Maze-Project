@@ -15,7 +15,7 @@ int mainMenuItemColor[] = { 11, 11, 11, 11 };
 char keyPressed;
 bool inMainMenu = true;
 
-//This function draws the Main Menu layout
+// draws the Main Menu layout
 void drawMainMenuLayout() {
     setColor(11); gotoxy(0, 0);
     cout << " _______  _______ _________ _          _______  _______  _" << endl;
@@ -28,7 +28,7 @@ void drawMainMenuLayout() {
     cout << "|/     \\||/     \\|\\_______/|/    )_)  |/     \\|(_______/|/    )_)(_______)" << endl;
 }
 
-//This function draws the options of the Main Menu
+// draws the options of the Main Menu
 void drawMainMenu() {
     drawMainMenuLayout();
 
@@ -45,7 +45,7 @@ void drawMainMenu() {
     gotoxy(30, 15); setColor(mainMenuItemColor[3]); cout << " Quit ";
 }
 
-//This function draws the greeting that is displayed at the end of the program
+// draws the greeting that is displayed at the end of the program
 void drawTheEnd() {
     system("CLS");
     setColor(11);
@@ -63,7 +63,7 @@ void drawTheEnd() {
     system("PAUSE");
 }
 
-//This function proccesses the input from the Main Menu
+// proccesses the input from the Main Menu
 void processMainMenuInput(char keyPressed) {
     switch (keyPressed) {
         case(KEY_UP):
