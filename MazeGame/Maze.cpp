@@ -33,26 +33,32 @@ bool mazeCellHasBottomWall(int row, int col);
 bool mazeCellHasLeftWall(int row, int col);
 bool mazeCellHasRightWall(int row, int col);
 
+//This function takes the maze size
 int getMazeSize() {
 	return mazeSize;
 }
 
+//This function checks if a cell has a top wall
 bool mazeCellHasTopWall(int row, int col) {
 	return mazeCell[row][col].top;
 }
 
+//This function checks if a cell has a bottom wall
 bool mazeCellHasBottomWall(int row, int col) {
 	return mazeCell[row][col].bottom;
 }
 
+//This function checks if a cell has a left wall
 bool mazeCellHasLeftWall(int row, int col) {
 	return mazeCell[row][col].left;
 }
 
+//This function checks if a cell has a right wall
 bool mazeCellHasRightWall(int row, int col) {
 	return mazeCell[row][col].right;
 }
 
+//This function checks if a cell has 3 walls
 bool isMazeCellTucked(int row, int col) {
 	int wallCount = 0;
 
@@ -75,6 +81,7 @@ bool isMazeCellTucked(int row, int col) {
 	return (wallCount == 3);
 }
 
+//This function builds a grid
 void buildMaze(int size) {
 	mazeSize = size;
 	mazeCell = new MazeCell * [mazeSize];
@@ -100,6 +107,7 @@ void buildMaze(int size) {
 	drawMaze();
 }
 
+//This function checks if a cell has unvisited neighbouring cells
 bool hasUnvisitedNeighbours(int row, int col) {
 	bool result = false;
 	unvisitedNeighboursCount = 0;
@@ -149,12 +157,14 @@ bool hasUnvisitedNeighbours(int row, int col) {
 	return result;
 }
 
+//This function randomly chooses an unvisited neighbour of a cell
 void chooseUnvisitedNeighbour() {
 	int choosenUnvisitedNeighbour = rand() % unvisitedNeighboursCount + 1;
 	neighbourRow = unvisitedNeighbours[choosenUnvisitedNeighbour - 1][0];
 	neighbourCol = unvisitedNeighbours[choosenUnvisitedNeighbour - 1][1];
 }
 
+//This function removes the wall between the current cell and one of its neighbouring cells
 void removeWallBetween(int currentRow, int currentCol, int neighbourRow, int neighbourCol) {
 	// checkForTopNeighbour
 	if (currentRow == neighbourRow + 1) {
@@ -186,6 +196,7 @@ void removeWallBetween(int currentRow, int currentCol, int neighbourRow, int nei
 	}
 }
 
+//This function generates a random maze
 void generateMaze(int row, int col) {
 	//1. Given a current cell as a parameter
 	//2. Mark the current cell as visited
@@ -201,6 +212,7 @@ void generateMaze(int row, int col) {
 		}
 }
 
+//This function draws the generated in the previous function maze in the console
 void drawMaze() {
 	setColor(11);
 
@@ -228,6 +240,7 @@ void drawMaze() {
 	cout << endl;
 }
 
+//This function destroys the maze
 void destroyMaze() {
 	for (int i = 0; i < mazeSize; i++) {
 		delete[] mazeCell[i];
