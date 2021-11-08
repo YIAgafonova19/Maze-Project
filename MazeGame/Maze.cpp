@@ -7,31 +7,11 @@
 
 using namespace std;
 
-struct MazeCell {
-	bool visited;
-	bool top;
-	bool right;
-	bool bottom;
-	bool left;
-};
-
 int mazeSize;
 MazeCell** mazeCell;
 int neighbourRow, neighbourCol;
 int unvisitedNeighboursCount;
 int unvisitedNeighbours[4][2];
-
-bool hasUnvisitedNeighbours(int row, int col);
-void chooseUnvisitedNeighbour();
-void removeWallBetween(int currentRow, int currentCol, int neighbourRow, int neighbourCol);
-void generateMaze(int row, int col);
-void drawMaze();
-void destroyMaze();
-int getMazeSize();
-bool mazeCellHasTopWall(int row, int col);
-bool mazeCellHasBottomWall(int row, int col);
-bool mazeCellHasLeftWall(int row, int col);
-bool mazeCellHasRightWall(int row, int col);
 
 //This function takes the maze size
 int getMazeSize() {

@@ -12,10 +12,6 @@ int playerCol, playerRow;
 int lastPlayerCol, lastPlayerRow;
 int playerMoves;
 
-void drawPlayer();
-void initPlayer();
-bool checkFinalCondition();
-
 //This function initializes a player
 void initPlayer() {
 	playerCol = 0;
