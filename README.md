@@ -28,7 +28,7 @@ Introducing to the world - Maze game!
 
 ## ✅ Features
 
-- 3 levels of difficulty + a custom level
+- 3 levels of difficulty
 - User-friendly interface
 - Rules menu with instructions for the game
 - Leaderboard with the highest scores
