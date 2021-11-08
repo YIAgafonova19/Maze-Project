@@ -15,7 +15,7 @@ int levelMenuItemColor[] = { 11, 11, 11, 11 };
 char levelKeyPressed;
 bool inLevelMenu = true;
 
-//This function draws the Select Level menu layout
+// draws the Select Level menu layout
 void drawLevelMenuLayout() {
     setColor(11); gotoxy(0, 0);
     cout << " _______  _______  _        _______  _______ _________   _        _______           _______  _       " << endl;
@@ -28,7 +28,7 @@ void drawLevelMenuLayout() {
     cout << "\\_______)(_______/(_______/(_______/(_______/   )_(     (_______/(_______/   \\_/   (_______/(_______/" << endl;
 }
 
-//This function draws the options of the Select Level menu
+// draws the options of the Select Level menu
 void drawLevelMenu() {
     drawLevelMenuLayout();
 
@@ -45,7 +45,7 @@ void drawLevelMenu() {
     gotoxy(30, 15); setColor(levelMenuItemColor[3]); cout << " Go back ";
 }
 
-//This function proccesses the input from the Level Menu
+// proccesses the input from the Level Menu
 void processLevelMenuInput(char levelKeyPressed) {
     switch (levelKeyPressed) {
     case(KEY_UP):
