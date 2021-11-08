@@ -38,7 +38,7 @@ Introducing to the world - Maze game!
 
 - [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/yiagafonova19_codingburgas_bg/EWVfzSFkhKNKsuZffxj24nYBxgL6j88BXwL2R5P1Oi1mWQ?e=mPigAY)
 - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/yiagafonova19_codingburgas_bg/Eb2jBZxPViJLsX7Tk_leBoUByoOenzp1QKyK5JBWetItwg?e=1Kse4Z)
-- [Test Plan](https://codingburgas-my.sharepoint.com/:w:/g/personal/yiagafonova19_codingburgas_bg/ERmPN7SvQHtGpoKo7yI4Ze4BpTycLx0xx-pgxo1g_MYUjQ?e=RC9EXX)
+- [Test Plan](https://codingburgas-my.sharepoint.com/:w:/g/personal/yiagafonova19_codingburgas_bg/Ebwsbe9rs85Aj4qeMz10kSsBYy1-115wTGkYI4uNbv4gBQ?e=KbVklM)
 - [Game Testing](https://codingburgas-my.sharepoint.com/:x:/g/personal/yiagafonova19_codingburgas_bg/ES4ZwqtjXfZLuUho4gy4O-EB-RmkVk8Y0no05wR_0Z5rvA?e=2e8iih)
 
 
