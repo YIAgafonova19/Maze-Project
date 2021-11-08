@@ -10,17 +10,17 @@ using namespace std;
 int playerScore;
 int bestScore[] = { 50, 80, 100 };
 
-//This function initializes the score of the player
+// initializes the score of the player
 void initPlayerScore() {
 	playerScore = 0;
 }
 
-//This function adds 1 to the current score of the player
+// adds 1 to the current score of the player
 void setScore() {
 	playerScore++;
 }
 
-//This function draws the Leaderboard menu of the game
+// draws the Leaderboard menu of the game
 void drawLeaderboard() {
 	system("CLS");
 
@@ -42,14 +42,14 @@ void drawLeaderboard() {
 	system("CLS");
 }
 
-//This function checks if the player's score is higher than the current best score on the according level and sets it as the new best if it better
+// checks if the player's score is higher than the current best score on the according level and sets it as the new best if it better
 void setFinalScore() {
 	if (playerScore < bestScore[getCurrentDifficulty()]) {
 		bestScore[getCurrentDifficulty()] = playerScore;
 	}
 }
 
-//This function draws the score on the console
+// draws the score on the console
 void drawScore() {
 	gotoxy(0, 0); cout << "Key count: " << getPlayerKeys() << " / Current score: " << playerScore << " / Best score: " << bestScore[getCurrentDifficulty()];
 }
