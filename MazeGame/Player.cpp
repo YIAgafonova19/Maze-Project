@@ -12,7 +12,7 @@ int playerCol, playerRow;
 int lastPlayerCol, lastPlayerRow;
 int playerMoves;
 
-//This function initializes a player
+// initializes a player
 void initPlayer() {
 	playerCol = 0;
 	playerRow = 0;
@@ -21,13 +21,13 @@ void initPlayer() {
 	lastPlayerRow = 0;
 }
 
-//This function draws the player in the console
+// draws the player in the console
 void drawPlayer() {
 	gotoxy(1 + lastPlayerCol * 5, 2 + lastPlayerRow * 2); cout << "    ";
 	gotoxy(1 + playerCol * 5, 2 + playerRow * 2); setColor(6); cout << "<==>";
 }
 
-//This function moves the player in a direction according to which key the player pressed
+// moves the player in a direction according to which key the player pressed
 void movePlayer(int direction) {
 	lastPlayerRow = playerRow;
 	lastPlayerCol = playerCol;
@@ -97,17 +97,17 @@ void movePlayer(int direction) {
 	}
 }
 
-//This function takes the colomn the player is at 
+// takes the colomn the player is at 
 int getPlayerCol() {
 	return playerCol;
 }
 
-//This function takes the row the player is at
+// takes the row the player is at
 int getPlayerRow() {
 	return playerRow;
 }
 
-//This function checks if the player has reached the end of the maze
+// checks if the player has reached the end of the maze
 bool checkFinalCondition() {
 	return ((playerCol == getMazeSize()) && (playerRow == getMazeSize() - 1));
 }
